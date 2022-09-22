@@ -2,6 +2,7 @@
   "name": "multi-range-slider-react",
   "version": "2.1.0",
   "private": true,
+  "homepage": "https://developergovindgupta.github.io/multi-range-slider-react-ts",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
