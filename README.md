@@ -5,6 +5,8 @@ a react component that can easy to use and interact with parent component with p
 
 ------------
 
+## Click on image to view demo-code.
+
 [<img src="./simple-range-slider.png">](https://codesandbox.io/s/multi-range-slider-react-demo-tsi0x)
 [<img src="./range-slider-with-custom-css.png">](https://codesandbox.io/s/multi-range-slider-react-demo-tsi0x)
 [<img src="./range-slider-week-days.png">](https://codesandbox.io/s/multi-range-slider-react-demo-tsi0x)
@@ -22,6 +24,17 @@ a react component that can easy to use and interact with parent component with p
 ## MultiRangeSlider.jsx , MultiRangeSlider.css
 
 ### You can customize css to change UI/UX.
+
+Download CSS file and modify it and reference it with baseClassName attribute
+
+[multirangeslider.css](https://raw.githubusercontent.com/developergovindgupta/multi-range-slider-react-ts/master/src/components/multirangeslider.css)
+
+[multirangesliderblack.css](https://raw.githubusercontent.com/developergovindgupta/multi-range-slider-react-ts/master/src/components/multirangesliderblack.css)
+
+
+
+
+<hr/>
 
 Following is the list of props that control the component 
 
@@ -48,6 +61,7 @@ Following is the list of props that control the component
 |barInnerColor|String-Color||specify slider inner part background color|
 |thumbLeftColor|String-Color||specify slider left thumb background color|
 |thumbRightColor|String-Color||specify slider right thumb background color|
+|ref|React.useRef||reference to div.multi-range-slider|
 
 ### Event List
 
