@@ -10,11 +10,11 @@ a react component that can easy to use and interact with parent component with p
 [<img src="./simple-range-slider.png">](https://codesandbox.io/s/range-slider-with-default-values-jjr9nt)
 [<img src="./range-slider-with-custom-css.png">](https://codesandbox.io/s/range-slider-with-custom-css-bunj91)
 [<img src="./range-slider-week-days.png">](https://codesandbox.io/s/range-slider-week-days-slider-24xqki)
-[<img src="./range-slider-date-range.png">](https://codesandbox.io/s/multi-range-slider-react-demo-tsi0x)
-[<img src="./range-slider-time-range.png">](https://codesandbox.io/s/multi-range-slider-react-demo-tsi0x)
-[<img src="./range-slider-negative-positive-range.png">](https://codesandbox.io/s/multi-range-slider-react-demo-tsi0x)
-[<img src="./range-slider-step-only-round.png">](https://codesandbox.io/s/multi-range-slider-react-demo-tsi0x)
-[<img src="./range-slider-custom-style-props.png">](https://codesandbox.io/s/multi-range-slider-react-demo-tsi0x)
+[<img src="./range-slider-date-range.png">](https://codesandbox.io/s/range-slider-date-range-ndngb6)
+[<img src="./range-slider-time-range.png">](https://codesandbox.io/s/range-slider-time-range-f47oy7)
+[<img src="./range-slider-negative-positive-range.png">](https://codesandbox.io/s/range-slider-negative-positive-range-o9i02h)
+[<img src="./range-slider-step-only-round.png">](https://codesandbox.io/s/range-slider-round-step-only-qf339k)
+[<img src="./range-slider-custom-style-props.png">](https://codesandbox.io/s/range-slider-custom-style-props-dcvshf)
 
 ------------
 
@@ -206,7 +206,7 @@ Example Code
 ## [GitHub-page](https://developergovindgupta.github.io/multi-range-slider-react-ts/)
 
 ## [Click here to view DEMO](https://tsi0x.csb.app/)
-## [Click here to view DEMO + Example Code](https://codesandbox.io/s/multi-range-slider-react-demo-tsi0x)
+## [Click here to view DEMO + Example Code](https://codesandbox.io/dashboard/all/multi-range-slider-react)
 
 <br/><br/><br/><br/><br/>
 

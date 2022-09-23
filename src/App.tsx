@@ -78,7 +78,7 @@ function App() {
 	const getTimeLabels = (): string[] => {
 		let arr: string[] = [];
 		for (let i = 0; i <= 12; i++) {
-			arr.push(i.toString().padStart(2, '0') + '.00');
+			arr.push(i.toString().padStart(2, '0') + ':00');
 		}
 		return arr;
 	};
@@ -238,7 +238,7 @@ function App() {
 					minValue={-0.5}
 					maxValue={0.5}
 					step={0.1}
-					onInput={(e) => {
+					onInput={(e: ChangeResult) => {
 						setMinValue4(e.minValue);
 						setMaxValue4(e.maxValue);
 					}}
@@ -264,7 +264,7 @@ function App() {
 					maxValue={60}
 					step={5}
 					stepOnly={true}
-					onInput={(e) => {
+					onInput={(e: ChangeResult) => {
 						setMinValue5(e.minValue);
 						setMaxValue5(e.maxValue);
 					}}
@@ -290,7 +290,7 @@ function App() {
 				<MultiRangeSlider
 					min={0}
 					max={100}
-					onInput={(e) => {
+					onInput={(e: ChangeResult) => {
 						setMinValue6(e.minValue);
 						setMaxValue6(e.maxValue);
 					}}
