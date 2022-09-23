@@ -7,9 +7,9 @@ a react component that can easy to use and interact with parent component with p
 
 ## Click on image to view demo-code.
 
-[<img src="./simple-range-slider.png">](https://codesandbox.io/s/multi-range-slider-react-demo-tsi0x)
-[<img src="./range-slider-with-custom-css.png">](https://codesandbox.io/s/multi-range-slider-react-demo-tsi0x)
-[<img src="./range-slider-week-days.png">](https://codesandbox.io/s/multi-range-slider-react-demo-tsi0x)
+[<img src="./simple-range-slider.png">](https://codesandbox.io/s/range-slider-with-default-values-jjr9nt)
+[<img src="./range-slider-with-custom-css.png">](https://codesandbox.io/s/range-slider-with-custom-css-bunj91)
+[<img src="./range-slider-week-days.png">](https://codesandbox.io/s/range-slider-week-days-slider-24xqki)
 [<img src="./range-slider-date-range.png">](https://codesandbox.io/s/multi-range-slider-react-demo-tsi0x)
 [<img src="./range-slider-time-range.png">](https://codesandbox.io/s/multi-range-slider-react-demo-tsi0x)
 [<img src="./range-slider-negative-positive-range.png">](https://codesandbox.io/s/multi-range-slider-react-demo-tsi0x)
@@ -33,6 +33,10 @@ Download CSS file and modify it and reference it with baseClassName attribute
 
 
 
+<hr/>
+
+# view Demo 
+## [GitHub-page](https://developergovindgupta.github.io/multi-range-slider-react-ts/)
 
 <hr/>
 
@@ -74,27 +78,27 @@ Following is the list of props that control the component
 ### typescript props definition 
 
 	Props = {
-		min?: Number | String;
-		max?: Number | String;
-		step?: Number | String;
-		minValue?: Number | String;
-		maxValue?: Number | String;
-		baseClassName?: String;
-		className?: String;
+		min?: number | string;
+		max?: number | string;
+		step?: number | string;
+		minValue?: number | string;
+		maxValue?: number | string;
+		baseClassName?: string;
+		className?: string;
 		style?: React.CSSProperties;
-		ruler?: Boolean | String;
-		label?: Boolean | String;
-		subSteps?: Boolean | String;
-		stepOnly?: Boolean | String;
-		preventWheel?: Boolean | String;
-		labels?: String[];
-		minCaption?: String;
-		maxCaption?: String;
-		barLeftColor?: String;
-		barRightColor?: String;
-		barInnerColor?: String;
-		thumbLeftColor?: String;
-		thumbRightColor?: String;
+		ruler?: boolean | string;
+		label?: boolean | string;
+		subSteps?: boolean | string;
+		stepOnly?: boolean | string;
+		preventWheel?: boolean | string;
+		labels?: string[];
+		minCaption?: string;
+		maxCaption?: string;
+		barLeftColor?: string;
+		barRightColor?: string;
+		barInnerColor?: string;
+		thumbLeftColor?: string;
+		thumbRightColor?: string;
 		onInput?: (e: ChangeResult) => void;
 		onChange?: (e: ChangeResult) => void;
 	};
@@ -102,10 +106,10 @@ Following is the list of props that control the component
 
 ### onInput/onChange event parameter type - typescript
 	type ChangeResult = {
-		min: Number;
-		max: Number;
-		minValue: Number;
-		maxValue: Number;
+		min: number;
+		max: number;
+		minValue: number;
+		maxValue: number;
 	};
 
 <hr/>
@@ -177,8 +181,8 @@ Example Code
 						minValue={minValue}
 						maxValue={maxValue}
 						onInput={(e: ChangeResult) => {
-							setMinValue(+e.minValue);
-							setMaxValue(+e.maxValue);
+							setMinValue(e.minValue);
+							setMaxValue(e.maxValue);
 						}}
 					></MultiRangeSlider>
 					<div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -198,6 +202,8 @@ Example Code
 
 <br/><br/><br/><br/><br/>
 # View Demo
+
+## [GitHub-page](https://developergovindgupta.github.io/multi-range-slider-react-ts/)
 
 ## [Click here to view DEMO](https://tsi0x.csb.app/)
 ## [Click here to view DEMO + Example Code](https://codesandbox.io/s/multi-range-slider-react-demo-tsi0x)

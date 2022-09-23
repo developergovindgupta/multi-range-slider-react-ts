@@ -47,13 +47,13 @@ function App() {
 		let dd1 = new Date(d.getFullYear(), 0, 1);
 		let dd2 = new Date(d.getFullYear(), 0, 1);
 
-		dd1.setDate(+e.minValue + 1);
-		dd2.setDate(+e.maxValue + 1);
+		dd1.setDate(e.minValue + 1);
+		dd2.setDate(e.maxValue + 1);
 
 		set_minMonthCaption(formatDate(dd1));
 		set_maxMonthCaption(formatDate(dd2));
-		setMinMonthValue(+e.minValue);
-		setMaxMonthValue(+e.maxValue);
+		setMinMonthValue(e.minValue);
+		setMaxMonthValue(e.maxValue);
 	};
 
 	//Time Range Selection methods/state/constants
@@ -63,14 +63,14 @@ function App() {
 	const [minTimeCaption, set_minTimeCaption] = useState('');
 	const [maxTimeCaption, set_maxTimeCaption] = useState('');
 	const handleTimeChange = (e: ChangeResult) => {
-		let h = Math.floor(+e.minValue / 60);
-		let m = +e.minValue % 60;
+		let h = Math.floor(e.minValue / 60);
+		let m = e.minValue % 60;
 		let minH = h.toString().padStart(2, '0');
 		let minM = m.toString().padStart(2, '0');
 		set_minTimeCaption(minH + ':' + minM);
 
-		let hh = Math.floor(+e.maxValue / 60);
-		let mm = +e.maxValue % 60;
+		let hh = Math.floor(e.maxValue / 60);
+		let mm = e.maxValue % 60;
 		let maxH = hh.toString().padStart(2, '0');
 		let maxM = mm.toString().padStart(2, '0');
 		set_maxTimeCaption(maxH + ':' + maxM);
@@ -97,8 +97,8 @@ function App() {
 				<MultiRangeSlider
 					ref={ref}
 					onInput={(e: ChangeResult) => {
-						setMinValue(+e.minValue);
-						setMaxValue(+e.maxValue);
+						setMinValue(e.minValue);
+						setMaxValue(e.maxValue);
 					}}
 				></MultiRangeSlider>
 				<div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -118,8 +118,8 @@ function App() {
 					minValue={minValue}
 					maxValue={maxValue}
 					onChange={(e: ChangeResult) => {
-						setMinValue2(+e.minValue);
-						setMaxValue2(+e.maxValue);
+						setMinValue2(e.minValue);
+						setMaxValue2(e.maxValue);
 					}}
 				/>
 				<div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -146,10 +146,10 @@ function App() {
 					minCaption={minCaption}
 					maxCaption={maxCaption}
 					onInput={(e: ChangeResult) => {
-						set_minCaption(weekDays[+e.minValue]);
-						set_maxCaption(weekDays[+e.maxValue]);
-						setMinValue3(+e.minValue);
-						setMaxValue3(+e.maxValue);
+						set_minCaption(weekDays[e.minValue]);
+						set_maxCaption(weekDays[e.maxValue]);
+						setMinValue3(e.minValue);
+						setMaxValue3(e.maxValue);
 					}}
 				/>
 				<div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -239,8 +239,8 @@ function App() {
 					maxValue={0.5}
 					step={0.1}
 					onInput={(e) => {
-						setMinValue4(+e.minValue);
-						setMaxValue4(+e.maxValue);
+						setMinValue4(e.minValue);
+						setMaxValue4(e.maxValue);
 					}}
 				/>
 				<div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -265,8 +265,8 @@ function App() {
 					step={5}
 					stepOnly={true}
 					onInput={(e) => {
-						setMinValue5(+e.minValue);
-						setMaxValue5(+e.maxValue);
+						setMinValue5(e.minValue);
+						setMaxValue5(e.maxValue);
 					}}
 				/>
 				<div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -291,8 +291,8 @@ function App() {
 					min={0}
 					max={100}
 					onInput={(e) => {
-						setMinValue6(+e.minValue);
-						setMaxValue6(+e.maxValue);
+						setMinValue6(e.minValue);
+						setMaxValue6(e.maxValue);
 					}}
 					label={false}
 					ruler={false}
