@@ -96,6 +96,8 @@ function App() {
 				<hr />
 				<MultiRangeSlider
 					ref={ref}
+					minValue={minValue}
+					maxValue={maxValue}
 					onInput={(e: ChangeResult) => {
 						setMinValue(e.minValue);
 						setMaxValue(e.maxValue);
@@ -117,6 +119,10 @@ function App() {
 					baseClassName='multi-range-slider-black'
 					minValue={minValue}
 					maxValue={maxValue}
+					onInput={(e: ChangeResult) => {
+						setMinValue(e.minValue);
+						setMaxValue(e.maxValue);
+					}}
 					onChange={(e: ChangeResult) => {
 						setMinValue2(e.minValue);
 						setMaxValue2(e.maxValue);

@@ -341,7 +341,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 		set_barMin(_barMin);
 		let _barMax = ((max - maxValue) / (max - min)) * 100;
 		set_barMax(_barMax);
-		triggerChange();
+		window.setTimeout(triggerChange);
 	}, [minValue, maxValue, min, max, fixed, props, isChange]);
 
 	useEffect(() => {
