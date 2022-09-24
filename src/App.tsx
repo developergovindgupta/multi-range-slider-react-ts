@@ -27,7 +27,7 @@ function App() {
 	const [maxCaption, set_maxCaption] = useState('');
 
 	//Date Range Selection methods/state/constants
-	const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+	const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', ''];
 	const yearDays = 365 + (new Date().getFullYear() % 4 === 0 ? 1 : 0);
 	const [minMonthCaption, set_minMonthCaption] = useState('');
 	const [maxMonthCaption, set_maxMonthCaption] = useState('');
