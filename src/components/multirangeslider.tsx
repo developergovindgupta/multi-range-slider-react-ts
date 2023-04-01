@@ -3,6 +3,7 @@ import './multirangeslider.css';
 import './multirangesliderblack.css';
 
 type Props = {
+	id?: string;
 	min?: number | string;
 	max?: number | string;
 	step?: number | string;
@@ -33,7 +34,8 @@ export type ChangeResult = {
 	minValue: number;
 	maxValue: number;
 };
-
+let _wheelTimeout: number | null = null;
+let _triggerTimeout: number | null = null;
 const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>): JSX.Element => {
 	let ruler = props.ruler === undefined || props.ruler === null ? true : props.ruler;
 	let label = props.label === undefined || props.label === null ? true : props.label;
@@ -116,6 +118,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 			_minValue = maxValue - step;
 		}
 		set_minValue(_minValue);
+		setIsChange(true);
 	};
 	const onLeftThumbMousedown: React.MouseEventHandler = (e: React.MouseEvent) => {
 		let startX = e.clientX;
@@ -200,6 +203,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 			_maxValue = minValue + step;
 		}
 		set_maxValue(_maxValue);
+		setIsChange(true);
 	};
 	const onRightThumbMousedown: React.MouseEventHandler = (e: React.MouseEvent) => {
 		let startX = e.clientX;
@@ -309,9 +313,13 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 			}
 			_minValue = val;
 		}
-
+		setIsChange(false);
 		set_maxValue(_maxValue);
 		set_minValue(_minValue);
+		_wheelTimeout && window.clearTimeout(_wheelTimeout);
+		_wheelTimeout = window.setTimeout(() => {
+			setIsChange(true);
+		}, 100);
 	};
 	useEffect(() => {
 		if (refBar && refBar.current) {
@@ -341,7 +349,8 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 		set_barMin(_barMin);
 		let _barMax = ((max - maxValue) / (max - min)) * 100;
 		set_barMax(_barMax);
-		window.setTimeout(triggerChange);
+		_triggerTimeout && window.clearTimeout(_triggerTimeout);
+		_triggerTimeout = window.setTimeout(triggerChange, 20);
 	}, [minValue, maxValue, min, max, fixed, props, isChange]);
 
 	useEffect(() => {
@@ -356,6 +365,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 		if (_minValue > max) {
 			_minValue = max;
 		}
+		setIsChange(false);
 		set_minValue(+_minValue);
 	}, [props.minValue, min, max]);
 	useEffect(() => {
@@ -371,14 +381,15 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 		if (_maxValue < min) {
 			_maxValue = min;
 		}
+		setIsChange(false);
 		set_maxValue(+_maxValue);
 	}, [props.maxValue, min, max, step]);
 
 	return (
-		<div ref={ref} className={(props.baseClassName || 'multi-range-slider') + ' ' + (props.className || '')} style={props.style} onWheel={onMouseWheel}>
+		<div ref={ref} id={props.id} className={(props.baseClassName || 'multi-range-slider') + ' ' + (props.className || '')} style={props.style} onWheel={onMouseWheel}>
 			<div className='bar' ref={refBar}>
 				<div className='bar-left' style={{ width: barMin + '%', backgroundColor: props.barLeftColor }} onClick={onBarLeftClick}></div>
-				<input className='input-type-range input-type-range-min' type='range' min={min} max={max} step={step} value={minValue} onInput={onInputMinChange} />
+				<input placeholder='min-value' className='input-type-range input-type-range-min' type='range' min={min} max={max} step={step} value={minValue} onInput={onInputMinChange} />
 				<div className='thumb thumb-left' style={{ backgroundColor: props.thumbLeftColor }} onMouseDown={onLeftThumbMousedown} onTouchStart={onLeftThumbTouchStart}>
 					<div className='caption'>
 						<span className='min-caption'>{minCaption}</span>
@@ -388,7 +399,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 					<div className='bar-inner-left' onClick={onInnerBarLeftClick}></div>
 					<div className='bar-inner-right' onClick={onInnerBarRightClick}></div>
 				</div>
-				<input className='input-type-range input-type-range-max' type='range' min={min} max={max} step={step} value={maxValue} onInput={onInputMaxChange} />
+				<input placeholder='max-value' className='input-type-range input-type-range-max' type='range' min={min} max={max} step={step} value={maxValue} onInput={onInputMaxChange} />
 				<div className='thumb thumb-right' style={{ backgroundColor: props.thumbRightColor }} onMouseDown={onRightThumbMousedown} onTouchStart={onRightThumbTouchStart}>
 					<div className='caption'>
 						<span className='max-caption'>{maxCaption}</span>

@@ -44,6 +44,7 @@ Following is the list of props that control the component
 
 |props   | type | default | description | 
 | ------------ | ------------ | ------------ | ------------ |
+| id  | String  | '' | Set id to multi-range-slider control root div |
 | min  | Number  | 0 | Slider Minimum Value that user can set |
 | max  | Number  | 100 | Slider Maximum Value that user can Set |
 | minValue  | Number  | 25 | Slider range selected minimum value that will show default selected |
