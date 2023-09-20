@@ -181,3 +181,45 @@
 .multi-range-slider.zero-ranage-margin .thumb-right {
 	left: 8px;
 }
+
+
+/* Disabled */
+.multi-range-slider.disabled {
+	border: solid 1px rgb(200, 200, 200);
+	box-shadow: 1px 1px 4px rgb(180, 180, 180);
+	color:rgb(180, 180, 180);
+}
+.multi-range-slider .bar {
+	display: flex;
+}
+.multi-range-slider.disabled .bar-left {
+	background-color: #c9c9c9;
+	box-shadow: inset 0px 0px 5px rgb(160, 160, 160);
+}
+.multi-range-slider.disabled .bar-right {
+	background-color: #c9c9c9;
+	box-shadow: inset 0px 0px 5px rgb(160, 160, 160);
+}
+.multi-range-slider.disabled .bar-inner {
+	background-color: rgb(130 243 130);
+	border: solid 1px rgb(149, 149, 149);
+	box-shadow: inset 0px 0px 5px rgb(103, 103, 103);
+}
+.multi-range-slider.disabled .thumb {
+	background-color: white;
+}
+.multi-range-slider.disabled .thumb::before {
+	border: solid 1px rgb(200, 200, 200);
+	box-shadow: 0px 0px 3px rgb(35, 35, 35), inset 0px 0px 5px gray;
+}
+.multi-range-slider.disabled .input-type-range:focus + .thumb::after {
+	border: dotted 1px rgb(35, 35, 35);
+	box-shadow: 0px 0px 5px white, inset 0px 0px 10px rgb(35, 35, 35);
+}
+.multi-range-slider.disabled .thumb .caption * {
+	background-color: rgb(84, 84, 137);
+	color: rgb(199, 199, 199);
+	box-shadow: 0px 0px 5px rgb(35, 35, 35);
+}
+
+

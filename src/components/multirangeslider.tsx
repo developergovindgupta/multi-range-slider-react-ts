@@ -11,6 +11,7 @@ type Props = {
 	maxValue?: number | string;
 	baseClassName?: string;
 	className?: string;
+	disabled?: boolean;
 	style?: React.CSSProperties;
 	ruler?: boolean | string;
 	label?: boolean | string;
@@ -47,6 +48,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 	let max = +(props.max || 100);
 	let step = +(props.step || 5);
 	let fixed = 0;
+	let disabled = !!props.disabled;
 
 	let stepCount = Math.floor((+max - +min) / +step);
 	let labels: string[] = props.labels || [];
@@ -106,6 +108,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 	const [isChange, setIsChange] = useState(true);
 
 	const onBarLeftClick = (e: React.MouseEvent) => {
+		if (disabled) return;
 		let _minValue = minValue - step;
 		if (_minValue < min) {
 			_minValue = min;
@@ -113,6 +116,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 		set_minValue(_minValue);
 	};
 	const onInputMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (disabled) return;
 		let _minValue = parseFloat(e.target.value);
 		if (_minValue > maxValue - step) {
 			_minValue = maxValue - step;
@@ -121,6 +125,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 		setIsChange(true);
 	};
 	const onLeftThumbMousedown: React.MouseEventHandler = (e: React.MouseEvent) => {
+		if (disabled) return;
 		let startX = e.clientX;
 		let thumb = e.target as HTMLDivElement;
 		let bar = thumb.parentNode as HTMLDivElement;
@@ -152,6 +157,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 		document.addEventListener('mouseup', onLeftThumbMouseup);
 	};
 	const onLeftThumbTouchStart = (e: React.TouchEvent) => {
+		if (disabled) return;
 		let startX = e.touches[0].clientX;
 		let thumb = e.target as HTMLDivElement;
 		let bar = thumb.parentNode as HTMLDivElement;
@@ -184,6 +190,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 		document.addEventListener('touchend', onLeftThumbTouchEnd);
 	};
 	const onInnerBarLeftClick = (e: React.MouseEvent) => {
+		if (disabled) return;
 		let _minValue = minValue + step;
 		if (_minValue > maxValue - step) {
 			_minValue = maxValue - step;
@@ -191,6 +198,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 		set_minValue(_minValue);
 	};
 	const onInnerBarRightClick = (e: React.MouseEvent) => {
+		if (disabled) return;
 		let _maxValue = maxValue - step;
 		if (_maxValue < minValue + step) {
 			_maxValue = minValue + step;
@@ -198,6 +206,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 		set_maxValue(_maxValue);
 	};
 	const onInputMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (disabled) return;
 		let _maxValue = parseFloat(e.target.value);
 		if (_maxValue < minValue + step) {
 			_maxValue = minValue + step;
@@ -206,6 +215,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 		setIsChange(true);
 	};
 	const onRightThumbMousedown: React.MouseEventHandler = (e: React.MouseEvent) => {
+		if (disabled) return;
 		let startX = e.clientX;
 		let thumb = e.target as HTMLDivElement;
 		let bar = thumb.parentNode as HTMLDivElement;
@@ -237,6 +247,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 		document.addEventListener('mouseup', onRightThumbMouseup);
 	};
 	const onRightThumbTouchStart = (e: React.TouchEvent) => {
+		if (disabled) return;
 		let startX = e.touches[0].clientX;
 		let thumb = e.target as HTMLDivElement;
 		let bar = thumb.parentNode as HTMLDivElement;
@@ -268,6 +279,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 		document.addEventListener('touchend', onRightThumbTouchEnd);
 	};
 	const onBarRightClick = (e: React.MouseEvent) => {
+		if (disabled) return;
 		let _maxValue = maxValue + step;
 		if (_maxValue > max) {
 			_maxValue = max;
@@ -275,6 +287,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 		set_maxValue(_maxValue);
 	};
 	const onMouseWheel = (e: React.WheelEvent) => {
+		if (disabled) return;
 		if (preventWheel === true) {
 			return;
 		}
@@ -386,7 +399,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 	}, [props.maxValue, min, max, step]);
 
 	return (
-		<div ref={ref} id={props.id} className={(props.baseClassName || 'multi-range-slider') + ' ' + (props.className || '')} style={props.style} onWheel={onMouseWheel}>
+		<div ref={ref} id={props.id} className={(props.baseClassName || 'multi-range-slider') + ' ' + (props.className || '') + (disabled ? ' disabled' : '')} style={props.style} onWheel={onMouseWheel} >
 			<div className='bar' ref={refBar}>
 				<div className='bar-left' style={{ width: barMin + '%', backgroundColor: props.barLeftColor }} onClick={onBarLeftClick}></div>
 				<input placeholder='min-value' className='input-type-range input-type-range-min' type='range' min={min} max={max} step={step} value={minValue} onInput={onInputMinChange} />
