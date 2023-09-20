@@ -52,6 +52,7 @@ Following is the list of props that control the component
 | step  | Number  | 5 | Slider change value that will change when bar clicked or keyboard arrow key pressed |
 | stepOnly  | Boolean  | false | specify user to select only values in round of step only |
 | preventWheel  | Boolean  | false | true then it not accept mouse wheel to change its value. false then (shift + wheel) change minValue (ctrl+wheel) change maxValue, (ctrl+shift+wheel) change both values |
+| disabled  | Boolean  | false | true then user can not change its value by mouse/keyboard. Only can change by update props/state value |
 |ruler|Boolean|true|is ruler visible or not|
 |label|Boolean|true|is label visible or not|
 |labels|String Array||specify steps label string value|
