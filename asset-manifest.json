@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/multi-range-slider-react-ts/static/css/main.cb9fe23e.css",
-    "main.js": "/multi-range-slider-react-ts/static/js/main.aef61205.js",
+    "main.css": "/multi-range-slider-react-ts/static/css/main.79a38add.css",
+    "main.js": "/multi-range-slider-react-ts/static/js/main.82ab6f8b.js",
     "static/js/787.3e996a7f.chunk.js": "/multi-range-slider-react-ts/static/js/787.3e996a7f.chunk.js",
     "static/media/logo.svg": "/multi-range-slider-react-ts/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/multi-range-slider-react-ts/index.html",
-    "main.cb9fe23e.css.map": "/multi-range-slider-react-ts/static/css/main.cb9fe23e.css.map",
-    "main.aef61205.js.map": "/multi-range-slider-react-ts/static/js/main.aef61205.js.map",
+    "main.79a38add.css.map": "/multi-range-slider-react-ts/static/css/main.79a38add.css.map",
+    "main.82ab6f8b.js.map": "/multi-range-slider-react-ts/static/js/main.82ab6f8b.js.map",
     "787.3e996a7f.chunk.js.map": "/multi-range-slider-react-ts/static/js/787.3e996a7f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cb9fe23e.css",
-    "static/js/main.aef61205.js"
+    "static/css/main.79a38add.css",
+    "static/js/main.82ab6f8b.js"
   ]
 }
