@@ -12,6 +12,7 @@ type Props = {
 	baseClassName?: string;
 	className?: string;
 	disabled?: boolean;
+	canMinMaxValueSame?: boolean;
 	style?: React.CSSProperties;
 	ruler?: boolean | string;
 	label?: boolean | string;
@@ -49,6 +50,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 	let step = Math.abs(+(props.step || 5));
 	let fixed = 0;
 	let disabled = !!props.disabled;
+	let stepValue = props.canMinMaxValueSame ? 0 : step;
 
 	let stepCount = Math.floor((+max - +min) / +step);
 	let labels: string[] = props.labels || [];
@@ -118,8 +120,8 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 	const onInputMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (disabled) return;
 		let _minValue = parseFloat(e.target.value);
-		if (_minValue > maxValue - step) {
-			_minValue = maxValue - step;
+		if (_minValue > maxValue - stepValue) {
+			_minValue = maxValue - stepValue;
 		}
 		set_minValue(_minValue);
 		setIsChange(true);
@@ -143,8 +145,8 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 			val = parseFloat(val.toFixed(fixed));
 			if (val < min) {
 				val = min;
-			} else if (val > maxValue - step) {
-				val = maxValue - step;
+			} else if (val > maxValue - stepValue) {
+				val = maxValue - stepValue;
 			}
 			set_minValue(val);
 		};
@@ -175,8 +177,8 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 			val = parseFloat(val.toFixed(fixed));
 			if (val < min) {
 				val = min;
-			} else if (val > maxValue - step) {
-				val = maxValue - step;
+			} else if (val > maxValue - stepValue) {
+				val = maxValue - stepValue;
 			}
 			set_minValue(val);
 		};
@@ -192,24 +194,24 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 	const onInnerBarLeftClick = (e: React.MouseEvent) => {
 		if (disabled) return;
 		let _minValue = minValue + step;
-		if (_minValue > maxValue - step) {
-			_minValue = maxValue - step;
+		if (_minValue > maxValue - stepValue) {
+			_minValue = maxValue - stepValue;
 		}
 		set_minValue(_minValue);
 	};
 	const onInnerBarRightClick = (e: React.MouseEvent) => {
 		if (disabled) return;
 		let _maxValue = maxValue - step;
-		if (_maxValue < minValue + step) {
-			_maxValue = minValue + step;
+		if (_maxValue < minValue + stepValue) {
+			_maxValue = minValue + stepValue;
 		}
 		set_maxValue(_maxValue);
 	};
 	const onInputMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (disabled) return;
 		let _maxValue = parseFloat(e.target.value);
-		if (_maxValue < minValue + step) {
-			_maxValue = minValue + step;
+		if (_maxValue < minValue + stepValue) {
+			_maxValue = minValue + stepValue;
 		}
 		set_maxValue(_maxValue);
 		setIsChange(true);
@@ -231,8 +233,8 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 				val = Math.round(val / step) * step;
 			}
 			val = parseFloat(val.toFixed(fixed));
-			if (val < minValue + step) {
-				val = minValue + step;
+			if (val < minValue + stepValue) {
+				val = minValue + stepValue;
 			} else if (val > max) {
 				val = max;
 			}
@@ -263,8 +265,8 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 				val = Math.round(val / step) * step;
 			}
 			val = parseFloat(val.toFixed(fixed));
-			if (val < minValue + step) {
-				val = minValue + step;
+			if (val < minValue + stepValue) {
+				val = minValue + stepValue;
 			} else if (val > max) {
 				val = max;
 			}
@@ -311,8 +313,8 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 			}
 		} else if (e.ctrlKey) {
 			val = _maxValue + val;
-			if (val < _minValue + step) {
-				val = _minValue + step;
+			if (val < _minValue + stepValue) {
+				val = _minValue + stepValue;
 			} else if (val > max) {
 				val = max;
 			}
@@ -321,8 +323,8 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 			val = _minValue + val;
 			if (val < min) {
 				val = min;
-			} else if (val > _maxValue - step) {
-				val = _maxValue - step;
+			} else if (val > _maxValue - stepValue) {
+				val = _maxValue - stepValue;
 			}
 			_minValue = val;
 		}

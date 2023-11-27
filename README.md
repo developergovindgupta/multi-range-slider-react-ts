@@ -51,6 +51,7 @@ Following is the list of props that control the component
 | maxValue  | Number  | 75 | Slider range selected maximum value that will show default selected |
 | step  | Number  | 5 | Slider change value that will change when bar clicked or keyboard arrow key pressed |
 | stepOnly  | Boolean  | false | specify user to select only values in round of step only |
+| canMinMaxValueSame | Boolean | false | If true then user can select both min and max same value otherwise have difference of step value |
 | preventWheel  | Boolean  | false | true then it not accept mouse wheel to change its value. false then (shift + wheel) change minValue (ctrl+wheel) change maxValue, (ctrl+shift+wheel) change both values |
 | disabled  | Boolean  | false | true then user can not change its value by mouse/keyboard. Only can change by update props/state value |
 |ruler|Boolean|true|is ruler visible or not|
