@@ -46,7 +46,7 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 	let refBar = useRef<HTMLDivElement>(null);
 	let min = +(props.min || 0);
 	let max = +(props.max || 100);
-	let step = +(props.step || 5);
+	let step = Math.abs(+(props.step || 5));
 	let fixed = 0;
 	let disabled = !!props.disabled;
 
