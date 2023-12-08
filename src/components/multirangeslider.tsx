@@ -433,9 +433,9 @@ const MultiRangeSlider = (props: Props, ref: React.ForwardedRef<HTMLDivElement>)
 			)}
 			{label && (
 				<div className='labels'>
-					{labels.map((label) => {
+					{labels.map((label, index) => {
 						return (
-							<div key={label.toString()} className='label'>
+							<div key={index} className='label'>
 								{label}
 							</div>
 						);
